@@ -1,5 +1,10 @@
 <!-- links to pagination.js file-->
+<<<<<<< HEAD:app/views/layouts/_convocalendar.html.erb
 <%= javascript_include_tag "pagination"%>
+=======
+<%= javascript_include_tag "pagination" %>
+
+>>>>>>> 5938841b37a6ea9eff63a71cbc69b3772ad90973:app/views/layouts/_calendarwithpagination.html.erb
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 <%= will_paginate @calendar_events, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
@@ -7,6 +12,7 @@
 <%i = 0%>
 <br>
 <div id="convoCal">
+<<<<<<< HEAD:app/views/layouts/_convocalendar.html.erb
   <% if @conversations.count != 0 %>
     <% @calendar_events.sort_by{|t| t.start_at}.each do |event| %>
       <div class="row">
@@ -15,6 +21,25 @@
           <%= link_to event.topic, event_path(event.id), class: "h4", style: "font-weight:700; font-size: 120%", title: event.desc %>
           <div style= "color:black; font-size: 120%" >
             <p><%= event.name %></p>
+=======
+    <% if @conversations.count != 0 %>
+      <% @calendar_events.sort_by{|t| t.start_at}.each do |event| %>
+        <div class="row">
+          <% user = User.find(event.user_id) %>
+          <div class = "eventInfo col-3" style="text-align: left; padding-left: 50px">
+            <%= link_to event.topic, event_path(event.id), class: "h4", style: "font-weight:700", title: event.desc %>
+            <div style= "color:black" >
+              <%= event.name %>
+            </div>
+            <%= link_to user.name, user.permalink %>
+            <% if user_signed_in? %>
+              <% if event.user_id == current_user.id %>
+                <div>
+                  <%= link_to '(Edit Conversation)', edit_event_path(event.id) %>
+                </div>
+              <% end %>
+            <% end %>
+>>>>>>> 5938841b37a6ea9eff63a71cbc69b3772ad90973:app/views/layouts/_calendarwithpagination.html.erb
           </div>
           <%= link_to user.name, user.permalink, style: "font-size: 100%; font-weight: normal;" %>
           <% if user_signed_in? %>

@@ -25,7 +25,7 @@
       </h2>
 
       <h1 class="text-center maroon">
-        GRIT: Female + Tech = Activism
+        Female + STEM = Activism
       </h1>
       <h2 class="maroon pl-4 pr-4" style="font-size: 1.5em; text-shadow: 0.05em 0.05em #EEE, -0.05em 0.05em #EEE, 0.05em -0.05em #EEE, -0.05em -0.05em #EEE, 0 -0.05em #EEE, -0.05em 0 #EEE, 0.05em 0 #EEE, 0 0.05em #EEE;">
         Book coming soon!
@@ -53,6 +53,7 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="tabContainer text-center" style="width: 95%; margin: auto; background-color: #8C1D40; border-radius: 4px; padding-right: 0.2rem; padding-left: 0.2rem; padding-bottom: 0.2rem; box-shadow: 0px 5px 5px grey;" >
         <div class="buttonContainer pl-3 pr-3 pt-3" style="height: 100px;">
           <button onclick="showPanel(0,'#4caf50')" class= "btn btn-primary-week" style="float: left; width: 20%; height:65px; min-width: 60px; border-color: #ffffff; overflow: hidden">List View</button>
@@ -68,6 +69,16 @@
   </div>
   <div class="tabPanel container-fluid pl-0 pr-0">
     <%= render 'layouts/weeklycalendar', eventPartial: "layouts/renderdayhome"%>
+=======
+<div class="tabContainer text-center pl-2 pr-2 pb-2" style="background-color: #8C1D40" >
+  <div class="buttonContainer mx-auto pb-1" >
+    <button onclick="showPanel(0,'#4caf50')">Daily View</button>
+    <button onclick="showPanel(1,'#4caf50')">Monthly View</button>
+  </div>
+
+  <div class="listView tabPanel">
+    <%= render 'layouts/weeklycalendar', eventPartial: "layouts/renderdayhome" %>
+>>>>>>> 5938841b37a6ea9eff63a71cbc69b3772ad90973
   </div>
   <div class="tabPanel container-fluid">
     <div id="events">
