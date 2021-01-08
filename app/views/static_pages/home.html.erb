@@ -1,12 +1,12 @@
-<div class="row mt-2" id = "heroImage">
+<div class="row mt-2" id = "heroImage" style="box-shadow: 0 5px 5px rgba(0,0,0,.5)">
   <!-- DO NOT DELETE Where the home page images came from:
        https://unsplash.com/photos/IL4WL6bf-h4
        https://unsplash.com/photos/RIt88XBR3G0
-       https://unsplash.com/photos/rrI02QQ9GSQ 
-       https://unsplash.com/photos/SJvDxw0azqw 
-  -->  
+       https://unsplash.com/photos/rrI02QQ9GSQ
+       https://unsplash.com/photos/SJvDxw0azqw
+  -->
 
-  <div class="col-lg-5 pt-3 pb-4 ml-2 mr-2">
+  <div class="col pt-3 pl-1 ml-3" style = "height: 10%; width: 20%; margin-bottom: 30px">
     <% flash.each do |key, value| %>
       <div class="<%= flash_class(key) %>" style = "height:50px">
         <%= value %>
@@ -14,11 +14,11 @@
     <% end %>
 
     <div style="background-color: rgba(255, 255, 255, 0.4); border-radius: 7%">
-      <h1 class="text-center maroon mt-5 pl-2 pt-5" style="font-size: 50px">
-        <strong>Women who inspire you to </strong>
+    <h1 class="text-center maroon mt-5 pl-2 pt-5" style="font-size: 50px; width: 90%">
+      <strong>Women who inspire you to </strong>
         <%= image_tag("thinqMaroon.png", style: "height: 80px; margin-top: 10px") %>
-      </h1>
-    
+    </h1>
+
       <h2 class="maroon pl-4 pr-4" style="font-size: 1.5em; text-shadow: 0.05em 0.05em #EEE, -0.05em 0.05em #EEE, 0.05em -0.05em #EEE, -0.05em -0.05em #EEE, 0 -0.05em #EEE, -0.05em 0 #EEE, 0.05em 0 #EEE, 0 0.05em #EEE;">
         <li> Video chat / coffee shop conversations for all women! RSVP to or schedule casual conversations, trivia hour, career networking sessions, homework help, book clubs, meetings, etc.</li>
         <li> Bring friends and help build a virtual Empowerment community!</li>
@@ -29,7 +29,7 @@
       </h1>
       <h2 class="maroon pl-4 pr-4" style="font-size: 1.5em; text-shadow: 0.05em 0.05em #EEE, -0.05em 0.05em #EEE, 0.05em -0.05em #EEE, -0.05em -0.05em #EEE, 0 -0.05em #EEE, -0.05em 0 #EEE, 0.05em 0 #EEE, 0 0.05em #EEE;">
         Book coming soon!
-      </h2>  
+      </h2>
 
       <div class="text-center">
         <%= render 'layouts/countdown_clock' %>
@@ -41,30 +41,32 @@
 </div>
 
 <div>
-  <div class="convo-container text-center" style="background-color: #8C1D40">
-    <div id="scheduleStart"></div>
+        <div class="convo-container text-center">
+          <!-- col-lg-3 col-md-6 -->
+          <h2 class = "text-center" style="font-size: 250%; margin-top: 50px;"><strong>Conversations<strong>
+          </h2>
+          <hr class="title-divider" style="width: 27%; border-width: 3.5px; border-color: #FFC627;">
+          <br>
+          <p class = "text-center ml-5 pl-3 pt-1 pb-1 pr-2" style="width: 75%; margin: auto; text-align: left !important; font-size: 140%; background-color: #ffc107; border-radius: 5px 5px 0px 0px; color: #8C1D40; box-shadow: 0px 5px 5px grey;">
+            Drop into any of these conversations. Everyone is welcome!
+          </p>
+        </div>
+      </div>
 
-    <!-- col-lg-3 col-md-6 -->
-    <h1 class="white">Drop in to these Conversations</h1>
-    <h2 class="mb-0 pb-2" style="color:#FFF"> Everyone is welcome!</h2>
-    <div class="pt-2 pb-2" id="button">
-      <%= link_to 'Host a Conversation', new_event_path, class: "btn btn-warning", title: "Host drop-in conversation sessions or invite people to ask questions about your area of expertise" %>
-    </div>
-    
-  </div>
-</div>
-
-<div class="tabContainer text-center pl-2 pr-2 pb-2" style="background-color: #8C1D40" >
-  <div class="buttonContainer mx-auto pb-1" >
-    <button onclick="showPanel(0,'#4caf50')">List View</button>
-    <button onclick="showPanel(1,'#4caf50')">Daily View</button>
-    <button onclick="showPanel(2,'#4caf50')">Monthly View</button>
-  </div>
+      <div class="tabContainer text-center" style="width: 95%; margin: auto; background-color: #8C1D40; border-radius: 4px; padding-right: 0.2rem; padding-left: 0.2rem; padding-bottom: 0.2rem; box-shadow: 0px 5px 5px grey;" >
+        <div class="buttonContainer pl-3 pr-3 pt-3" style="height: 100px;">
+          <button onclick="showPanel(0,'#4caf50')" class= "btn btn-primary-week" style="float: left; width: 20%; height:65px; min-width: 60px; border-color: #ffffff; overflow: hidden">List View</button>
+          <button onclick="showPanel(1,'#4caf50')" class= "btn btn-primary-week" style="float: left; width: 20%; height:65px; min-width: 60px; border-color: #ffffff; overflow: hidden">Daily View</button>
+          <button onclick="showPanel(2,'#4caf50')" class= "btn btn-primary-week" style="float: left; width: 20%; height:65px; min-width: 95px; border-color: #ffffff; overflow: hidden">Monthly View</button>
+          <% if user_signed_in? %>
+            <%= link_to 'Host Conversation', new_event_path, class: "btn btn-warning", title: "Host drop-in conversation sessions or invite people to ask questions about your area of expertise", style: "padding-top: 9px !important; float: right; width: 20%; height:65px; line-height: 250%; overflow: hidden" %>
+          <% end %>
+        </div>
 
   <div class="listView tabPanel">
     <%= render 'layouts/convocalendar', collection: @conversations %>
   </div>
-  <div class="tabPanel container-fluid">
+  <div class="tabPanel container-fluid pl-0 pr-0">
     <%= render 'layouts/weeklycalendar', eventPartial: "layouts/renderdayhome"%>
   </div>
   <div class="tabPanel container-fluid">

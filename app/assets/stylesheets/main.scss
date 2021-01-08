@@ -43,12 +43,41 @@ body {
   margin-right: 10px;
 }
 
+.img-live{
+  height: 30px;
+  width: 55px;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
 .navbar-default {
   background-color: $brand-primary;
 }
 
 .overflow-visible {
   overflow: visible;
+}
+
+//overall makes buttons bigger and appear better
+.btn {
+    display: inline-block;
+    margin: 4px;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 //Prevents textareas from being resized out of their columns
@@ -107,25 +136,41 @@ h2 {
 //FOOTER.SCSS: This is all the css used for the footer
 footer {
   position: relative;
-  padding-top: 15px;
+  padding-top: 35px;
   padding-bottom: 15px;
   margin: 0;
-  margin-top: 50px;
+  margin-top: 100px;
   text-align: left;
-  background-color: $brand-primary;
+  background-color: #2B2D2F;
   font-family: Helvetica;
   font-size: 12px;
 }
 
 #copyright {
   position: absolute;
+  font-size: 15px;
   bottom: 0;
   right: 0;
 }
 
+#f-social {
+    &:hover {
+      text-decoration: none;
+    }
+}
+
 
 footer a.f-link {
-  color: $brand-gray;
+  color: $brand-white;
+
+  &:hover {
+    color: $brand-white;
+    text-decoration: underline;
+  }
+}
+
+footer a.f-phone {
+  color: $brand-white;
 
   &:hover {
     text-decoration: none;
@@ -142,7 +187,8 @@ footer div.col-sm-3 {
 }
 
 footer small {
-  color: $brand-secondary;
+  color: $brand-white;
+  margin-right: 40px;
 }
 
 /* Styles for footer for screens/windows smaller than 600px */
@@ -166,9 +212,29 @@ footer small {
   .btn-primary {
     color: $brand-gray;
     background-color: $brand-primary;
-    ;
     border-color: #771936;
     font: "Helvetica"
+  }
+
+    // Maybe the Buttons on the Daily/List/Monthly view????
+  .btn-primary-week {
+      color: #ffffff !important;
+      background-color: #8C1D40 !important;
+      width:120px;
+    }
+
+  // Maybe the Buttons on the Daily/List/Monthly view????
+  .btn-primary-week:hover {
+      color: #8C1D40 !important;
+      background-color: #ffffff !important;
+      border-color: #ffffff;
+  }
+
+  // Maybe the Buttons on the Daily/List/Monthly view????
+  .btn-primary-week:focus {
+      color: #8C1D40 !important;
+      background-color: #ffffff !important;
+      border-color: #ffffff;
   }
 
   .btn-default {
@@ -185,6 +251,30 @@ footer small {
     transform: scale(1.15) rotate(-12deg);
   }
 }
+
+#navLink {
+  font-weight: bold;
+
+  &:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+  }
+  &:focus {
+    text-decoration: underline !important;
+  }
+}
+
+//can be deleted?? but is used in Home.html.erb as "class"
+.btn-warning {
+    color: #8c1d40 !important;
+    background-color: $brand-secondary !important;
+    height: 50px;
+    margin-bottom: 9px !important;
+    float: right;
+    font-weight: bold !important;
+    font-size: 120% !important;
+  }
 
 //FAQ.SCSS: This is all the css specific to the FAQ page
 ul {
@@ -289,16 +379,16 @@ ul li a.toggle:hover {
   width: 70px;
 }
 
-//PANELS.SCSS: This stylesheet is for panels found in views/layouts and for users/controlpanel 
+//PANELS.SCSS: This stylesheet is for panels found in views/layouts and for users/controlpanel
 
 /* _maincalendar */
 
 #calendar td {
-  text-align: left;
+  text-align: center;
   border: none;
   border-bottom: 1px solid #dfdada;
   height: 0px;
-  font-size: 14px;
+  font-size: 16px;
   vertical-align: middle !important;
 }
 
@@ -318,6 +408,22 @@ ul li a.toggle:hover {
 }
 
 /* _convocalendar */
+
+/* CSS for users/controlpanel */
+#controlpanel-events {
+  margin-top: 60px;
+  right: 15.5%;
+}
+
+//added CSS, for testing
+#light-boxshadow {
+  box-shadow: 0 5px 5px rgba(0,0,0,.5);
+}
+
+#countdown-boxshadow {
+  box-shadow: 0 10px 10px rgba(0,0,0,.5);
+}
+//Can be deleted
 
 /* Styles for the list view on the home page for smaller width devices */
 @media only screen and (max-width: 800px){
@@ -345,12 +451,6 @@ ul li a.toggle:hover {
   .new_rsvpq {
     padding-bottom: 1em;
   }
-} 
-
-/* CSS for users/controlpanel */
-#controlpanel-events {
-  margin-top: 60px;
-  right: 15.5%;
 }
 
 /* This stylesheet is used for the calendar in home page and drop-in page */
@@ -430,7 +530,7 @@ td {
   .hideWhenSmall {
     display: none;
   }
-  
+
   span.showWhenSmall{
     display: inline;
     color: white;
@@ -583,7 +683,7 @@ td {
   }
 
   #dropLeftButton {
-    width: 100%; 
+    width: 100%;
   }
 
   #dropLeftButton button {
